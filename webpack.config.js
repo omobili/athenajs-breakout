@@ -19,8 +19,8 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader']/*,
-                exclude: /node_modules|athena\.app/*/
+                loaders: ['awesome-typescript-loader'],
+                exclude: /node_modules|athena\.app/
             },
             {
                 test: /athena\.js$/,
@@ -33,7 +33,7 @@ module.exports = {
         host: HOST,
         port: PORT,
 
-        contentBase: './build/',
+        // index: './build/index.html',
 
         // inline hot-reload
         inline: true
@@ -41,8 +41,8 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules'
-        ]
-
+        ],
+        extensions: [".ts", ".js"]
     },
     plugins: [
         new WebpackNotifierPlugin({
