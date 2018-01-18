@@ -8,5 +8,19 @@
   },
   "keywords": [],
   "author": "Olivier Mobili",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "3.4.1",
+    "css-loader": "0.28.4",
+    "html-webpack-plugin": "2.29.0",
+    "source-map-loader": "0.2.3",
+    "typescript": "2.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7",
+    "webpack-notifier": "1.5.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --watch",
+    "build": "webpack"
+  }
 }
