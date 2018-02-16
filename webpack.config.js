@@ -1,17 +1,23 @@
 const path = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = '127.0.0.1';
 const PORT = '8888';
 
+const PATHS = {
+    app: path.join(__dirname, 'app'),
+    build: path.join(__dirname, 'build')
+};
+
 module.exports = {
     entry: [
         'webpack-dev-server/client?http://'+HOST+':'+PORT,
-        './app/main.ts'
+        PATHS.app + '/main.ts'
     ],
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: "bundle.js",
+        path: PATHS.build,
+        filename: 'bundle.js',
         pathinfo: true
     },
     devtool: 'source-map',
@@ -33,7 +39,8 @@ module.exports = {
         host: HOST,
         port: PORT,
 
-        // index: './build/index.html',
+        contentBase: path.join(__dirname, 'build'),
+        index: './index.html',
 
         // inline hot-reload
         inline: true
@@ -49,6 +56,10 @@ module.exports = {
             alwaysNotify: true,
             skipFirstNotification: true,
             title: 'AthenaJS-Breakout'
+        }),
+        new HtmlWebpackPlugin({
+            filename: PATHS.build + '/index.html',
+            template: PATHS.app + '/index.html'
         })
     ]
 };
