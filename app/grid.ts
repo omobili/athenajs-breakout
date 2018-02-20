@@ -1,16 +1,17 @@
 import {Scene} from 'athenajs';
+import {Bar} from './objects/bar';
 
 export class Grid extends Scene {
-    constructor() {
-        super({
-            resources: [{
-                id:     'tiles',
-                type:   'image',
-                src:    '../app/img/breakout_tiles.png'
-            }]
-        });
+    addObject: any;
 
-        console.log('Game > Grid (Scene) :', this);
+    setup() {
+        console.log('Game > Grid (Scene) > Setup ()');
+    }
+    start() {
+        console.log('Game > Grid (Scene) > Start ()');
+        this.addObject(new Bar({
+
+        }));
     }
 }
 

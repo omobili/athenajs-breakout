@@ -1,4 +1,4 @@
-import {Game, Scene} from 'athenajs';
+import {Game} from 'athenajs';
 import {Grid} from './grid';
 
 const breakout = new Game({
