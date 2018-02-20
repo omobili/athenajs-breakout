@@ -3,7 +3,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = '127.0.0.1';
-const PORT = '8888';
+const PORT = '8080';
 
 const PATHS = {
     app: path.join(__dirname, 'app'),
