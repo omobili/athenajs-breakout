@@ -1,16 +1,18 @@
 import {Scene} from 'athenajs';
-import {Bar} from './objects/bar';
+import {Bar, BarParams, BarBehavior} from './objects/bar';
 
 export class Grid extends Scene {
+    // Missing @types from Athena //
     addObject: any;
+    // .. //
 
-    setup() {
-        console.log('Game > Grid (Scene) > Setup ()');
-    }
     start() {
-        console.log('Game > Grid (Scene) > Start ()');
         this.addObject(new Bar({
-
+            width: BarParams.width,
+            height: BarParams.height,
+            y: 550,
+            x: 340,
+            behavior: BarBehavior
         }));
     }
 }
