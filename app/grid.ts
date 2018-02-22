@@ -2,10 +2,6 @@ import {Scene} from 'athenajs';
 import {Bar, BarParams, BarBehavior} from './objects/bar';
 
 export class Grid extends Scene {
-    // Missing @types from Athena //
-    addObject: any;
-    // .. //
-
     start() {
         this.addObject(new Bar({
             width: BarParams.width,

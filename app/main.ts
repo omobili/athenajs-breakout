@@ -9,6 +9,6 @@ const breakout = new Game({
     height: 600
 });
 
-const scene = new Grid();
+const scene = new Grid({});
 
 breakout.setScene(scene);

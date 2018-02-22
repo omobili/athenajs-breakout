@@ -6,10 +6,6 @@ export const BarParams = {
 };
 
 export class BarBehavior extends Behavior {
-    // Missing @types from Athena //
-    sprite: any;
-    // .. //
-
     constructor(drawable, options) {
         super(drawable, options);
     }
@@ -26,12 +22,8 @@ export class BarBehavior extends Behavior {
 }
 
 export class Bar extends Paint {
-    // Missing @types from Athena //
-    rect: any;
-    // .. //
-
     constructor(options) {
-        super(Paint.name, options);
+        super('bar', options);
     }
 
     render() {
