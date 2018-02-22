@@ -84,7 +84,7 @@ declare module 'athenajs' {
         onVYChange?: Function;
     }
 
-    class Behavior {
+    export class Behavior {
         sprite: Drawable;
 
         constructor(sprite: Drawable, options: BehaviorOptions);
