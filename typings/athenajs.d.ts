@@ -51,6 +51,10 @@ declare module 'athenajs' {
         width: number;
         height: number;
 
+        currentScene: Scene;
+
+        hitTest(obj: Drawable): boolean;
+
         constructor(type: string, options: DrawableOptions);
     }
 
@@ -70,6 +74,7 @@ declare module 'athenajs' {
         constructor(name: string, options: PaintOptions);
 
         rect(x: number, y: number, width: number, height: number, color?: string);
+        circle(x: number, y: number, radius: number, color: string, strokeWidth?: number, strokeStyle?: string);
     }
 
     //

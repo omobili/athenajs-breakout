@@ -1,14 +1,31 @@
 import {Scene} from 'athenajs';
-import {Bar, BarParams, BarBehavior} from './objects/bar';
+import {Bar, BarBehavior, BAR_PARAMS} from './objects/bar';
+import {Ball, BallBehavior, BALL_PARAMS} from "./objects/ball";
 
 export class Grid extends Scene {
-    start() {
-        this.addObject(new Bar({
-            width: BarParams.width,
-            height: BarParams.height,
+    bar: Bar;
+
+    constructor(options) {
+        super(options);
+
+        this.bar = new Bar({
+            width: BAR_PARAMS.width,
+            height: BAR_PARAMS.height,
             y: 550,
             x: 340,
             behavior: BarBehavior
+        });
+    }
+
+    start() {
+        this.addObject(this.bar);
+
+        this.addObject(new Ball({
+            width: BALL_PARAMS.radius * 2,
+            height: BALL_PARAMS.radius * 2,
+            x: 10 + BALL_PARAMS.radius,
+            y: 500 + BALL_PARAMS.radius,
+            behavior: BallBehavior
         }));
     }
 }

@@ -1,6 +1,6 @@
 import {Paint, Behavior, InputManager as Input} from 'athenajs';
 
-export const BarParams = {
+export const BAR_PARAMS = {
     width: 120,
     height: 20
 };
@@ -27,6 +27,6 @@ export class Bar extends Paint {
     }
 
     render() {
-        this.rect(0, 0, BarParams.width, BarParams.height, 'black');
+        this.rect(0, 0, BAR_PARAMS.width, BAR_PARAMS.height, 'black');
     }
 }
