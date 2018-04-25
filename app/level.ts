@@ -2,8 +2,9 @@ import {Scene} from 'athenajs';
 import {Bar, BarBehavior, BAR_PARAMS} from './objects/bar';
 import {Ball, BallBehavior, BALL_PARAMS} from "./objects/ball";
 
-export class Grid extends Scene {
+export class Level extends Scene {
     bar: Bar;
+    ball: Ball;
 
     constructor(options) {
         super(options);
@@ -13,21 +14,30 @@ export class Grid extends Scene {
             height: BAR_PARAMS.height,
             y: 550,
             x: 340,
+            canCollide: true,
             behavior: BarBehavior
+        });
+
+        this.ball = new Ball({
+            width: BALL_PARAMS.radius * 2,
+            height: BALL_PARAMS.radius * 2,
+            x: 0 + BALL_PARAMS.radius,
+            y: 500 + BALL_PARAMS.radius,
+            canCollide: true,
+            behavior: BallBehavior
         });
     }
 
     start() {
         this.addObject(this.bar);
-
-        this.addObject(new Ball({
-            width: BALL_PARAMS.radius * 2,
-            height: BALL_PARAMS.radius * 2,
-            x: 10 + BALL_PARAMS.radius,
-            y: 500 + BALL_PARAMS.radius,
-            behavior: BallBehavior
-        }));
+        this.addObject(this.ball);
     }
+
+    update(timestamp) {
+        super.update(timestamp);
+
+        this.ball.checkForCollisions(this.bar);
+     }
 }
 
 // import { Scene, Map, Tile } from 'athenajs';

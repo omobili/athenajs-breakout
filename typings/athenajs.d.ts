@@ -32,6 +32,8 @@ declare module 'athenajs' {
         constructor(options: SceneOptions);
 
         addObject(objects: Array<object>|Drawable, layerIndex?: number): void;
+
+        update(timestamp: number): void;
     }
 
     //
@@ -43,6 +45,7 @@ declare module 'athenajs' {
         collideGroup?: number;
         master?: boolean;
         visible?: boolean;
+        canCollide?: boolean;
     }
 
     export class Drawable {
@@ -51,11 +54,14 @@ declare module 'athenajs' {
         width: number;
         height: number;
 
+        behavior: Behavior;
         currentScene: Scene;
 
-        hitTest(obj: Drawable): boolean;
-
         constructor(type: string, options: DrawableOptions);
+
+        hitTest(obj: Drawable): boolean;
+        onHit(obj: Drawable): void;
+
     }
 
     //

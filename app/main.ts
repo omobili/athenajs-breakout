@@ -1,5 +1,5 @@
 import {Game} from 'athenajs';
-import {Grid} from './grid';
+import {Level} from './level';
 
 const breakout = new Game({
     name: 'athena-breakout',
@@ -9,6 +9,6 @@ const breakout = new Game({
     height: 600
 });
 
-const scene = new Grid({});
+const level = new Level({});
 
-breakout.setScene(scene);
+breakout.setScene(level);
